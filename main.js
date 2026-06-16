@@ -45,13 +45,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Theme Toggle Logic
     const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeLabel = document.getElementById('theme-label');
     const body = document.body;
 
     themeToggleBtn.addEventListener('click', () => {
         if (body.classList.contains('light-mode')) {
             body.classList.replace('light-mode', 'dark-mode');
+            if (themeLabel) themeLabel.textContent = 'Dark Mode';
         } else {
             body.classList.replace('dark-mode', 'light-mode');
+            if (themeLabel) themeLabel.textContent = 'Light Mode';
         }
     });
 

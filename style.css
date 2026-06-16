@@ -165,6 +165,19 @@ h2 {
 }
 
 /* Theme Toggle */
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.theme-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    transition: color 0.3s ease;
+    user-select: none;
+}
 .theme-toggle {
     background: none;
     border: none;
@@ -394,45 +407,15 @@ canvas {
     transform: scale(1.05);
 }
 
-/* Departments / Grid */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background-color: var(--container-bg);
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    transition: all 0.4s ease;
-    border: 1px solid var(--border-color);
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--card-hover-shadow);
-    border-color: var(--accent-color);
-}
-
-.card .icon {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-/* Events */
+/* Departments & Events / Grid */
+.grid-container,
 .event-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
+.card,
 .event-card {
     background-color: var(--container-bg);
     padding: 40px 30px;
@@ -440,15 +423,32 @@ canvas {
     box-shadow: var(--shadow);
     transition: all 0.4s ease;
     border: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
+.card:hover,
 .event-card:hover {
     transform: translateY(-10px);
     box-shadow: var(--card-hover-shadow);
     border-color: var(--accent-color);
+}
+
+.card h3,
+.event-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Department specific */
+.card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Event specific */
+.event-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .event-date {
@@ -458,11 +458,6 @@ canvas {
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
-}
-
-.event-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
 }
 
 .event-card p {
