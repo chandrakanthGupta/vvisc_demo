@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('scroll-canvas');
     if (scrollContainer && canvas) {
         const context = canvas.getContext('2d');
-        const frameCount = 168;
+        const frameCount = 176;
         const currentFrame = index => `frames/ezgif-frame-${index.toString().padStart(3, '0')}.jpg`;
         const images = [];
         let loadedImages = 0;

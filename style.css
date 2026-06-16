@@ -9,7 +9,7 @@
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     --card-hover-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     --border-color: rgba(74, 53, 37, 0.1);
-    
+
     /* Buttons */
     --btn-primary-bg: #4A3525;
     --btn-primary-text: #FAF6EE;
@@ -23,7 +23,8 @@
     --bg-color: #2A1F16;
     --container-bg: #3A2B1E;
     --heading-color: #F7F4EB;
-    --text-color: #C1A77E; /* Muted gold */
+    --text-color: #C1A77E;
+    /* Muted gold */
     --accent-color: #A3C4AC;
     --nav-bg: rgba(42, 31, 22, 0.95);
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -53,7 +54,12 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--heading-color);
     font-weight: 600;
     transition: color 0.4s ease;
@@ -123,7 +129,8 @@ h2 {
     height: 50px;
     width: 50px;
     object-fit: cover;
-    border-radius: 50%; /* Crops out the dark gradient background, leaving the circular logo */
+    border-radius: 50%;
+    /* Crops out the dark gradient background, leaving the circular logo */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -178,6 +185,7 @@ h2 {
     transition: color 0.3s ease;
     user-select: none;
 }
+
 .theme-toggle {
     background: none;
     border: none;
@@ -258,7 +266,8 @@ h2 {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100dvh; /* dynamic viewport height is better for mobile browsers */
+    height: 100dvh;
+    /* dynamic viewport height is better for mobile browsers */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -274,13 +283,15 @@ canvas {
 
 /* Hero Section */
 .hero {
-    min-height: 100dvh; /* ensures it handles stacked mobile content without cutting */
+    min-height: 100dvh;
+    /* ensures it handles stacked mobile content without cutting */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 100px 0 50px 0; /* padding provides breathing room when stacked */
+    padding: 100px 0 50px 0;
+    /* padding provides breathing room when stacked */
 }
 
 .hero-background {
@@ -306,7 +317,8 @@ canvas {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-top: 60px; /* Offset for navbar */
+    margin-top: 60px;
+    /* Offset for navbar */
     gap: 40px;
 }
 
@@ -353,7 +365,8 @@ canvas {
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% + 60px); /* Pushes the Spline watermark out of the bottom bounds */
+    height: calc(100% + 60px);
+    /* Pushes the Spline watermark out of the bottom bounds */
 }
 
 .model-placeholder {
@@ -590,24 +603,29 @@ footer {
         gap: 30px;
         margin-top: 40px;
     }
+
     .hero-content {
         order: 2;
         text-align: center;
         flex: none;
         width: 100%;
     }
+
     .hero h1 {
         font-size: 3.2rem;
     }
+
     .hero-model {
         order: 1;
         height: 400px;
         flex: none;
         width: 100%;
     }
+
     .hero-buttons {
         justify-content: center;
     }
+
     .grid-container {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
@@ -618,7 +636,7 @@ footer {
     .nav-links {
         display: none;
     }
-    
+
     .hamburger {
         display: flex;
     }
