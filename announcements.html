@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VVISC Technical Club - Announcements</title>
+    <meta name="description" content="Stay updated with the latest news, notices, and updates from VVISC.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .filter-input {
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background-color: var(--container-bg);
+            color: var(--text-color);
+            width: 100%;
+            max-width: 300px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .filter-btn {
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background-color: transparent;
+            color: var(--heading-color);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--heading-color);
+            color: var(--bg-color);
+        }
+        .announcement-card {
+            background-color: var(--container-bg);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-color);
+            transition: transform 0.3s;
+        }
+        .announcement-card:hover {
+            transform: translateX(10px);
+        }
+        .announcement-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body class="light-mode">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="VVISC Logo" class="nav-logo">
+                <span class="logo-text">VVISC <span class="logo-accent">IUCEE </span></span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="departments.html">Departments</a>
+                <a href="events.html">Events</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="council.html">Council</a>
+                <a href="announcements.html">Announcements</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <div class="theme-toggle-container">
+                    <span class="theme-label" id="theme-label">Light Mode</span>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                        <span class="toggle-icon"></span>
+                    </button>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="departments.html">Departments</a>
+            <a href="events.html">Events</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="council.html">Council</a>
+            <a href="announcements.html">Announcements</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container reveal-up">
+            <h1>Latest <span class="logo-accent">Announcements</span></h1>
+            <p class="section-subtitle">Stay informed with the latest updates, event notifications, and important notices.</p>
+        </div>
+    </header>
+
+    <!-- Announcements Feed -->
+    <section class="section-padding">
+        <div class="container" style="max-width: 800px;">
+            
+            <!-- Filter Bar UI -->
+            <div class="filter-bar reveal-down delay-100">
+                <input type="text" class="filter-input" placeholder="Search announcements...">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Events</button>
+                <button class="filter-btn">Notices</button>
+                <button class="filter-btn">Updates</button>
+            </div>
+
+            <!-- Announcements List -->
+            <div class="announcement-list">
+                <div class="announcement-card reveal-up delay-200">
+                    <div class="announcement-meta">
+                        <span class="category">Updates</span>
+                        <span class="date">Oct 01, 2026</span>
+                    </div>
+                    <h3>New Website Launched!</h3>
+                    <p>We are thrilled to announce the launch of our brand new, multi-page website. Explore our departments, gallery, and upcoming events seamlessly.</p>
+                </div>
+
+                <div class="announcement-card reveal-up delay-300" style="border-left-color: #d9534f;">
+                    <div class="announcement-meta">
+                        <span class="category" style="color: #d9534f;">Notices</span>
+                        <span class="date">Sep 28, 2026</span>
+                    </div>
+                    <h3>Workshop Rescheduled</h3>
+                    <p>Please note that the introductory AI/ML workshop originally scheduled for this Friday has been moved to October 5th. Venue remains the same.</p>
+                </div>
+
+                <div class="announcement-card reveal-up delay-400" style="border-left-color: #5cb85c;">
+                    <div class="announcement-meta">
+                        <span class="category" style="color: #5cb85c;">Events</span>
+                        <span class="date">Sep 20, 2026</span>
+                    </div>
+                    <h3>Hackathon Registrations Open</h3>
+                    <p>Registrations for the Annual Spring Hackathon are now live! Form your teams of 3-4 and register before the early bird deadline.</p>
+                </div>
+                
+                <div class="announcement-card reveal-up delay-500">
+                    <div class="announcement-meta">
+                        <span class="category">Updates</span>
+                        <span class="date">Sep 15, 2026</span>
+                    </div>
+                    <h3>Welcome New Faculty Coordinator</h3>
+                    <p>We are excited to welcome Dr. Sharma as the new faculty advisor for the Cyber Security domain.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 VVISC Technical Club. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

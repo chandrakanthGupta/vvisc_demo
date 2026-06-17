@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VVISC Technical Club - Contact Us</title>
+    <meta name="description" content="Get in touch with the VVISC team for collaborations, questions, or joining the club.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        .contact-form-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        .info-card {
+            background-color: var(--container-bg);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .info-card .icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+        .info-card h4 {
+            margin-bottom: 5px;
+        }
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: var(--container-bg);
+            border-radius: 16px;
+            border: 2px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body class="light-mode">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="VVISC Logo" class="nav-logo">
+                <span class="logo-text">VVISC <span class="logo-accent">IUCEE </span></span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="departments.html">Departments</a>
+                <a href="events.html">Events</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="council.html">Council</a>
+                <a href="announcements.html">Announcements</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <div class="theme-toggle-container">
+                    <span class="theme-label" id="theme-label">Light Mode</span>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                        <span class="toggle-icon"></span>
+                    </button>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="departments.html">Departments</a>
+            <a href="events.html">Events</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="council.html">Council</a>
+            <a href="announcements.html">Announcements</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container reveal-up">
+            <h1>Contact <span class="logo-accent">Us</span></h1>
+            <p class="section-subtitle">Have questions or want to collaborate? Reach out to our team.</p>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="contact-layout">
+                
+                <!-- Contact Information -->
+                <div class="contact-info reveal-left delay-100">
+                    <h2>Get in Touch</h2>
+                    <p style="margin-bottom: 30px;">We're always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+                    
+                    <div class="info-card">
+                        <div class="icon">📍</div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>VVISC Campus, Innovation Block, Room 404</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">✉️</div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>contact@vvisc-iucee.org</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">🌐</div>
+                        <div>
+                            <h4>Social Media</h4>
+                            <div style="display: flex; gap: 15px; margin-top: 5px;">
+                                <a href="#" style="color: var(--accent-color); font-weight: 600;">LinkedIn</a>
+                                <a href="#" style="color: var(--accent-color); font-weight: 600;">Twitter</a>
+                                <a href="#" style="color: var(--accent-color); font-weight: 600;">Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="map-placeholder reveal-up delay-300">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">🗺️</div>
+                            <p>Interactive Map Placeholder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container reveal-right delay-200">
+                    <form class="contact-form" style="margin: 0; max-width: 100%;">
+                        <h3 style="margin-bottom: 20px;">Send a Message</h3>
+                        <div class="input-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="input-group">
+                            <textarea rows="6" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 VVISC Technical Club. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

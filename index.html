@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VVISC Technical Club</title>
+    <title>VVISC Technical Club - Home</title>
+    <meta name="description"
+        content="Welcome to the VVISC IUCEE Student Chapter. Innovate, Build, and Transform with us.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -16,18 +18,20 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#intro" class="logo">
+            <a href="index.html" class="logo">
                 <img src="assets/logo.png" alt="VVISC Logo" class="nav-logo">
                 <span class="logo-text">VVISC <span class="logo-accent">IUCEE </span></span>
             </a>
 
             <div class="nav-links">
-                <a href="#intro">Intro</a>
-                <a href="#home">Home</a>
-                <a href="#about">Departments</a>
-                <a href="#events">Events</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="departments.html">Departments</a>
+                <a href="events.html">Events</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="council.html">Council</a>
+                <a href="announcements.html">Announcements</a>
+                <a href="contact.html">Contact</a>
             </div>
 
             <div class="nav-actions">
@@ -45,16 +49,18 @@
             </div>
         </div>
         <div class="mobile-menu">
-            <a href="#intro">Intro</a>
-            <a href="#home">Home</a>
-            <a href="#about">Departments</a>
-            <a href="#events">Events</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="departments.html">Departments</a>
+            <a href="events.html">Events</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="council.html">Council</a>
+            <a href="announcements.html">Announcements</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <!-- Scroll Animation Section -->
+    <!-- Scroll Animation Section (Logo Reveal) -->
     <section id="intro" class="scroll-container">
         <div class="canvas-container">
             <canvas id="scroll-canvas"></canvas>
@@ -65,147 +71,201 @@
     <section id="home" class="hero">
         <div class="hero-background"></div>
         <div class="container hero-container">
-            <div class="hero-content fade-in">
+            <div class="hero-content reveal-left">
                 <h1>Innovate. Build. <span class="highlight">Transform.</span></h1>
-                <p>Welcome to VVISC IUCEE Chapter. A place where ideas meet execution.</p>
+                <p
+                    style="font-size: 1.35rem; font-weight: 400; margin-bottom: 30px; line-height: 1.7; color: var(--text-color);">
+                    Where ideas evolve into impact and students become innovators.Bringing together passionate minds to
+                    innovate boldly,
+                    build confidently, and transform challenges into
+                    opportunities for growth and impact.</p>
                 <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">Discover More</a>
-                    <a href="#contact" class="btn btn-secondary">Join Us</a>
+                    <a href="about.html" class="btn btn-primary reveal-scale delay-400">Discover More</a>
+                    <a href="contact.html" class="btn btn-secondary reveal-scale delay-500">Join Us</a>
                 </div>
             </div>
-            <div class="hero-model fade-in">
-                <!-- Spline 3D viewer -->
-                <iframe src='https://my.spline.design/genkubgreetingrobot-yjG71GrOBfFaCZejjc5j0CzE/' frameborder='0'
-                    width='100%' height='100%'></iframe>
+            <div class="hero-right-col reveal-right"
+                style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div class="hero-model" style="flex: none; width: 100%; height: 420px; position: relative;">
+                    <!-- Spline 3D viewer -->
+                    <iframe src='https://my.spline.design/genkubgreetingrobot-yjG71GrOBfFaCZejjc5j0CzE/' frameborder='0'
+                        width='100%' height='100%'></iframe>
+                </div>
+                <div class="quote-container reveal-up delay-300"
+                    style="text-align: center; margin-top: 20px; padding: 0 20px; max-width: 450px;">
+                    <h2
+                        style="font-size: 1.6rem; font-style: italic; font-weight: 400; color: var(--accent-color); margin-bottom: 15px; line-height: 1.4;">
+                        "The future belongs to those who dare to learn, build, and lead."
+                    </h2>
+                    <div
+                        style="width: 50px; height: 3px; background-color: #D4AF37; margin: 0 auto; border-radius: 2px;">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Departments Section -->
-    <section id="about" class="departments section-padding">
-        <div class="container fade-in">
-            <h2>Our Departments</h2>
-            <p class="section-subtitle">Collaborating across disciplines to achieve excellence.</p>
+    <!-- Our Impact Section -->
+    <section class="section-padding impact-section">
+        <div class="container">
+            <h2 class="impact-heading reveal-down">Our Impact</h2>
+            <div class="heading-divider reveal-scale delay-100"></div>
+
+            <div class="impact-container reveal-scale delay-200">
+                <div class="marquee-container" style="padding: 0;">
+                    <div class="marquee-content" style="animation-duration: 20s;">
+                        <div class="stat-card">
+                            <div class="stat-icon">📄</div>
+                            <div class="stat-content">
+                                <div><span class="stat-number" data-target="30">0</span><span class="stat-plus">+</span>
+                                </div>
+                                <p class="stat-label">Research Papers</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎉</div>
+                            <div class="stat-content">
+                                <div><span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span>
+                                </div>
+                                <p class="stat-label">Events</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🤝</div>
+                            <div class="stat-content">
+                                <div><span class="stat-number" data-target="40">0</span><span class="stat-plus">+</span>
+                                </div>
+                                <p class="stat-label">Volunteers</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-content">
+                                <div><span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
+                                </div>
+                                <p class="stat-label">Achievements</p>
+                            </div>
+                        </div>
+
+                        <!-- Duplicated Set for Looping -->
+                        <div class="stat-card">
+                            <div class="stat-icon">📄</div>
+                            <div class="stat-content">
+                                <div><span class="stat-number" data-target="30">0</span><span class="stat-plus">+</span>
+                                </div>
+                                <p class="stat-label">Research Papers</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎉</div>
+                            <div class="stat-content">
+                                <div><span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span>
+                                </div>
+                                <p class="stat-label">Events</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🤝</div>
+                            <div class="stat-content">
+                                <div><span class="stat-number" data-target="40">0</span><span class="stat-plus">+</span>
+                                </div>
+                                <p class="stat-label">Volunteers</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-content">
+                                <div><span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
+                                </div>
+                                <p class="stat-label">Achievements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation Cards -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="reveal-down">Explore VVISC</h2>
+            <p class="section-subtitle reveal-up delay-100">Navigate through our various initiatives and branches.</p>
 
             <div class="grid-container">
-                <div class="card">
-                    <div class="icon">⚙️</div>
-                    <h3>Technical</h3>
-                    <p>Building the core infrastructure and developing cutting-edge software solutions.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">🔬</div>
-                    <h3>R&D</h3>
-                    <p>Researching new paradigms and pushing the boundaries of what's possible.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">🤝</div>
-                    <h3>PR</h3>
-                    <p>Managing public relations and ensuring our vision reaches the right audience.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">📈</div>
-                    <h3>Finance</h3>
-                    <p>Optimizing resources, funding projects, and ensuring sustainable growth.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">📱</div>
-                    <h3>Social Media</h3>
-                    <p>Engaging our community through impactful digital content and campaigns.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">🎨</div>
-                    <h3>Art</h3>
-                    <p>Designing beautiful, user-centric interfaces and creative assets.</p>
-                </div>
+                <a href="departments.html" class="card reveal-left delay-200">
+                    <div class="icon">🏢</div>
+                    <h3>Our Departments</h3>
+                    <p>Discover the various domains we operate in, from AI & ML to Cloud Computing.</p>
+                </a>
+                <a href="gallery.html" class="card reveal-scale delay-300">
+                    <div class="icon">🖼️</div>
+                    <h3>Gallery</h3>
+                    <p>Take a glimpse at our past events, workshops, and student projects.</p>
+                </a>
+                <a href="council.html" class="card reveal-right delay-400">
+                    <div class="icon">👥</div>
+                    <h3>Council Members</h3>
+                    <p>Meet the dedicated faculty and student coordinators behind VVISC.</p>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Events Section -->
-    <section id="events" class="events section-padding">
-        <div class="container fade-in">
-            <h2>Upcoming Events</h2>
-            <p class="section-subtitle">Join us and participate in our latest initiatives.</p>
-            
+    <!-- Upcoming Events Preview -->
+    <section class="section-padding" style="background-color: var(--container-bg);">
+        <div class="container">
+            <h2 class="reveal-down">Upcoming Events</h2>
+            <p class="section-subtitle reveal-up delay-100">Join us and participate in our latest initiatives.</p>
+
             <div class="event-grid">
-                <div class="event-card">
+                <div class="event-card reveal-left delay-200">
                     <div class="event-date">Oct 15, 2026</div>
                     <h3>Annual Hackathon</h3>
                     <p>A 48-hour coding marathon where ideas come to life. Build, innovate, and win prizes!</p>
-                    <a href="#" class="btn btn-secondary">Register Now</a>
+                    <a href="events.html" class="btn btn-secondary">View Details</a>
                 </div>
-                <div class="event-card">
+                <div class="event-card reveal-right delay-300">
                     <div class="event-date">Nov 02, 2026</div>
                     <h3>Core Team Hiring</h3>
                     <p>We are recruiting passionate individuals for technical and management roles. Join the team!</p>
-                    <a href="#" class="btn btn-secondary">Apply Now</a>
+                    <a href="events.html" class="btn btn-secondary">View Details</a>
                 </div>
-                <div class="event-card">
-                    <div class="event-date">Dec 10, 2026</div>
-                    <h3>Tech Symposium</h3>
-                    <p>Guest lectures, workshops, and networking with industry experts and alumni.</p>
-                    <a href="#" class="btn btn-secondary">Learn More</a>
-                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;" class="reveal-up delay-400">
+                <a href="events.html" class="btn btn-primary reveal-scale delay-500">See All Events</a>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery section-padding">
-        <div class="container fade-in">
-            <h2>Gallery</h2>
-            <p class="section-subtitle">Glimpses of our recent endeavors.</p>
+    <!-- Recent Announcements Preview -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="reveal-down">Recent Announcements</h2>
+            <p class="section-subtitle reveal-up delay-100">Stay updated with the latest news from the chapter.</p>
 
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="assets/gallery_tech_1781561693466.png" alt="Students collaborating">
-                    <div class="overlay">
-                        <span>Hackathon 2025</span>
+            <div class="timeline" style="max-width: 600px; margin: 0 auto;">
+                <div class="timeline-item timeline-left reveal-left delay-200">
+                    <div class="timeline-content">
+                        <h4>Workshop Rescheduled</h4>
+                        <p style="font-size: 0.9rem; color: var(--accent-color);">Posted on Sep 28, 2026</p>
+                        <p>The AI & ML introductory workshop has been moved to Oct 5th.</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/gallery_robotics_1781561707418.png" alt="Circuit board close-up">
-                    <div class="overlay">
-                        <span>Robotics Lab</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <!-- Reusing the first one for demonstration -->
-                    <img src="assets/gallery_tech_1781561693466.png" alt="Students collaborating">
-                    <div class="overlay">
-                        <span>Project Showcase</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <!-- Reusing the second one for demonstration -->
-                    <img src="assets/gallery_robotics_1781561707418.png" alt="Circuit board close-up">
-                    <div class="overlay">
-                        <span>Hardware Design</span>
+                <div class="timeline-item timeline-right reveal-right delay-300">
+                    <div class="timeline-content">
+                        <h4>New Faculty Coordinator</h4>
+                        <p style="font-size: 0.9rem; color: var(--accent-color);">Posted on Sep 20, 2026</p>
+                        <p>We welcome Dr.Bharath Prabha Medikonda & Raja vardhan as the new advisors for the Cyber
+                            Security wing.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section-padding">
-        <div class="container fade-in">
-            <h2>Get in Touch</h2>
-            <p class="section-subtitle">Have questions or want to collaborate? Reach out to us.</p>
-
-            <form class="contact-form">
-                <div class="input-group">
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="input-group">
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <div class="input-group">
-                    <textarea rows="5" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
+            <div style="text-align: center; margin-top: 40px;" class="reveal-up delay-400">
+                <a href="announcements.html" class="btn btn-primary reveal-scale delay-500">All Announcements</a>
+            </div>
         </div>
     </section>
 
