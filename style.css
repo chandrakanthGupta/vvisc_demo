@@ -8,7 +8,8 @@
     /* Darkened forest green for better readability */
     --accent-color: #5B7A62;
     /* Refined accent */
-    --nav-bg: rgba(250, 246, 238, 0.95);
+    --nav-bg: #f1dfc7;
+    /* Translucent Burlywood for light mode */
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     /* More elegant baseline shadow */
     --card-hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
@@ -674,11 +675,25 @@ footer {
 }
 
 /* Staggered Delays */
-.delay-100 { transition-delay: 0.1s; }
-.delay-200 { transition-delay: 0.2s; }
-.delay-300 { transition-delay: 0.3s; }
-.delay-400 { transition-delay: 0.4s; }
-.delay-500 { transition-delay: 0.5s; }
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
+
+.delay-500 {
+    transition-delay: 0.5s;
+}
 
 /* Visible State */
 .fade-in.visible,
