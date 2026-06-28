@@ -9,7 +9,7 @@
         content="Get in touch with the VVISC team for collaborations, questions, or joining the club.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
         .contact-layout {
@@ -48,19 +48,6 @@
 
         .info-card h4 {
             margin-bottom: 5px;
-        }
-
-        .map-placeholder {
-            width: 100%;
-            height: 300px;
-            background-color: var(--container-bg);
-            border-radius: 16px;
-            border: 2px dashed var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-color);
-            margin-top: 30px;
         }
     </style>
 </head>
@@ -110,6 +97,7 @@
             <a href="announcements.html">Announcements</a>
             <a href="contact.html">Contact</a>
         </div>
+        <div class="scroll-progress"></div>
     </nav>
 
     <!-- Page Header -->
@@ -127,6 +115,7 @@
 
                 <!-- Contact Information -->
                 <div class="contact-info reveal-left delay-100">
+                    <span class="eyebrow">Reach Out</span>
                     <h2>Get in Touch</h2>
                     <p style="margin-bottom: 30px;">We're always open to discussing new projects, creative ideas, or
                         opportunities to be part of your visions.</p>
@@ -163,21 +152,35 @@
                     <form class="contact-form" style="margin: 0; max-width: 100%;">
                         <h3 style="margin-bottom: 20px;">Send a Message</h3>
                         <div class="input-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" id="contact-name" placeholder=" " required>
+                            <label for="contact-name">Your Name</label>
                         </div>
                         <div class="input-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" id="contact-email" placeholder=" " required>
+                            <label for="contact-email">Your Email</label>
                         </div>
                         <div class="input-group">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" id="contact-subject" placeholder=" " required>
+                            <label for="contact-subject">Subject</label>
                         </div>
                         <div class="input-group">
-                            <textarea rows="6" placeholder="Your Message" required></textarea>
+                            <textarea rows="6" id="contact-message" placeholder=" " required></textarea>
+                            <label for="contact-message">Your Message</label>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <div class="form-status"></div>
                     </form>
                 </div>
 
+            </div>
+
+            <!-- Campus Map -->
+            <div class="reveal-up delay-300" style="margin-top: 50px;">
+                <iframe
+                    src="https://maps.google.com/maps?q=VVIT%20Nambur%20Guntur&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="320" style="border:0; border-radius: 4px; border: 1px solid var(--border-color);"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="VVITU Campus Location"></iframe>
             </div>
         </div>
     </section>
