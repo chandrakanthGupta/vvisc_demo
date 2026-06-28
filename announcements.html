@@ -8,62 +8,8 @@
     <meta name="description" content="Stay updated with the latest news, notices, and updates from VVISC.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .filter-bar {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 40px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .filter-input {
-            padding: 12px 20px;
-            border-radius: 50px;
-            border: 1px solid var(--border-color);
-            background-color: var(--container-bg);
-            color: var(--text-color);
-            width: 100%;
-            max-width: 300px;
-            font-family: 'Outfit', sans-serif;
-        }
-        .filter-btn {
-            padding: 10px 25px;
-            border-radius: 50px;
-            border: 1px solid var(--border-color);
-            background-color: transparent;
-            color: var(--heading-color);
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--heading-color);
-            color: var(--bg-color);
-        }
-        .announcement-card {
-            background-color: var(--container-bg);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            border-left: 5px solid var(--accent-color);
-            transition: transform 0.3s;
-        }
-        .announcement-card:hover {
-            transform: translateX(10px);
-        }
-        .announcement-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-    </style>
 </head>
 
 <body class="light-mode">
@@ -73,7 +19,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="assets/logo.png" alt="VVISC Logo" class="nav-logo">
-                <span class="logo-text">VVISC <span class="logo-accent">IUCEE </span></span>
+                <span class="logo-text">VVISC <span class="logo-accent">IUCEE</span></span>
             </a>
 
             <div class="nav-links">
@@ -124,7 +70,7 @@
 
     <!-- Announcements Feed -->
     <section class="section-padding">
-        <div class="container" style="max-width: 800px;">
+        <div class="container" style="max-width: 840px;">
             
             <!-- Filter Bar UI -->
             <div class="filter-bar reveal-down delay-100">
@@ -146,18 +92,18 @@
                     <p>We are thrilled to announce the launch of our brand new, multi-page website. Explore our departments, gallery, and upcoming events seamlessly.</p>
                 </div>
 
-                <div class="announcement-card reveal-up delay-300" style="border-left-color: #d9534f;">
+                <div class="announcement-card reveal-up delay-300">
                     <div class="announcement-meta">
-                        <span class="category" style="color: #d9534f;">Notices</span>
+                        <span class="category" style="color: #E1524D; background: rgba(225, 82, 77, 0.1);">Notices</span>
                         <span class="date">Sep 28, 2026</span>
                     </div>
                     <h3>Workshop Rescheduled</h3>
                     <p>Please note that the introductory AI/ML workshop originally scheduled for this Friday has been moved to October 5th. Venue remains the same.</p>
                 </div>
 
-                <div class="announcement-card reveal-up delay-400" style="border-left-color: #5cb85c;">
+                <div class="announcement-card reveal-up delay-400">
                     <div class="announcement-meta">
-                        <span class="category" style="color: #5cb85c;">Events</span>
+                        <span class="category" style="color: #4CAF50; background: rgba(76, 175, 80, 0.1);">Events</span>
                         <span class="date">Sep 20, 2026</span>
                     </div>
                     <h3>Hackathon Registrations Open</h3>
@@ -183,6 +129,19 @@
         </div>
     </footer>
 
+    <!-- Mouse hover tracking effect script for premium cards -->
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.announcement-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
     <script src="main.js"></script>
 </body>
 

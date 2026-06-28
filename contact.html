@@ -9,47 +9,8 @@
         content="Get in touch with the VVISC team for collaborations, questions, or joining the club.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .contact-layout {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            margin-top: 40px;
-        }
-
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-form-container {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .info-card {
-            background-color: var(--container-bg);
-            padding: 30px;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .info-card .icon {
-            font-size: 2rem;
-            color: var(--accent-color);
-        }
-
-        .info-card h4 {
-            margin-bottom: 5px;
-        }
-    </style>
 </head>
 
 <body class="light-mode">
@@ -59,7 +20,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="assets/logo.png" alt="VVISC Logo" class="nav-logo">
-                <span class="logo-text">VVISC <span class="logo-accent">IUCEE </span></span>
+                <span class="logo-text">VVISC <span class="logo-accent">IUCEE</span></span>
             </a>
 
             <div class="nav-links">
@@ -121,21 +82,27 @@
                         opportunities to be part of your visions.</p>
 
                     <div class="info-card">
-                        <div class="icon">📍</div>
+                        <div class="info-card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
                         <div>
                             <h4>Location</h4>
                             <p>VVITU Campus, NEW Block</p>
                         </div>
                     </div>
                     <div class="info-card">
-                        <div class="icon">✉️</div>
+                        <div class="info-card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
                         <div>
                             <h4>Email Us</h4>
                             <p>iucee@vvitu.edu</p>
                         </div>
                     </div>
                     <div class="info-card">
-                        <div class="icon">🌐</div>
+                        <div class="info-card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
                         <div>
                             <h4>Social Media</h4>
                             <div style="display: flex; gap: 15px; margin-top: 5px;">
@@ -150,7 +117,7 @@
                 <!-- Contact Form -->
                 <div class="contact-form-container reveal-right delay-200">
                     <form class="contact-form" style="margin: 0; max-width: 100%;">
-                        <h3 style="margin-bottom: 20px;">Send a Message</h3>
+                        <h3 style="margin-bottom: 24px; font-weight: 700;">Send a Message</h3>
                         <div class="input-group">
                             <input type="text" id="contact-name" placeholder=" " required>
                             <label for="contact-name">Your Name</label>
@@ -175,10 +142,10 @@
             </div>
 
             <!-- Campus Map -->
-            <div class="reveal-up delay-300" style="margin-top: 50px;">
+            <div class="reveal-up delay-300" style="margin-top: 60px;">
                 <iframe
                     src="https://maps.google.com/maps?q=VVIT%20Nambur%20Guntur&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    width="100%" height="320" style="border:0; border-radius: 4px; border: 1px solid var(--border-color);"
+                    width="100%" height="360" style="border:0; border-radius: var(--border-radius-md); border: 1px solid var(--border-color);"
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                     title="VVITU Campus Location"></iframe>
             </div>
@@ -191,6 +158,19 @@
         </div>
     </footer>
 
+    <!-- Mouse hover tracking effect script for premium cards -->
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.info-card, .contact-form');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
     <script src="main.js"></script>
 </body>
 

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ============================================
-       0. Active Page Highlighting
+       0. Active Page Highlighting & Sliding Hover Pill
        ============================================ */
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
@@ -10,6 +10,62 @@ document.addEventListener('DOMContentLoaded', () => {
         if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
             link.classList.add('active');
         }
+    });
+
+    const navLinksContainer = document.querySelector('.nav-links');
+    if (navLinksContainer) {
+        const hoverPill = document.createElement('div');
+        hoverPill.className = 'nav-hover-pill';
+        navLinksContainer.appendChild(hoverPill);
+        
+        const desktopLinks = navLinksContainer.querySelectorAll('a');
+        desktopLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                const linkRect = link.getBoundingClientRect();
+                const containerRect = navLinksContainer.getBoundingClientRect();
+                
+                hoverPill.style.left = `${linkRect.left - containerRect.left}px`;
+                hoverPill.style.width = `${linkRect.width}px`;
+                hoverPill.style.opacity = '1';
+            });
+        });
+        
+        navLinksContainer.addEventListener('mouseleave', () => {
+            hoverPill.style.opacity = '0';
+        });
+    }
+
+    /* ============================================
+       0b. 3D Tilt Tracking for Premium Cards
+       ============================================ */
+    const tiltCards = document.querySelectorAll('.card, .event-card, .department-card, .profile-card');
+    const isTouchDevice = matchMedia('(hover: none)').matches;
+    
+    if (!isTouchDevice) {
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                const tiltX = (0.5 - y) * 6; // max 3deg
+                const tiltY = (x - 0.5) * 6;
+                card.style.setProperty('--tilt-x', `${tiltX}deg`);
+                card.style.setProperty('--tilt-y', `${tiltY}deg`);
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.setProperty('--tilt-x', '0deg');
+                card.style.setProperty('--tilt-y', '0deg');
+            });
+        });
+    }
+
+    /* ============================================
+       0c. Stagger Index Assignment for Card Grids
+       ============================================ */
+    document.querySelectorAll('.grid-container, .event-grid, .profile-grid, .gallery-grid').forEach(grid => {
+        Array.from(grid.children).forEach((child, i) => {
+            child.style.setProperty('--stagger', i);
+        });
     });
 
     /* ============================================
@@ -279,15 +335,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ============================================
-       8. Page Transitions
+       8. Page Transitions (Premium Multi-Panel Slide)
        ============================================ */
-    const transitionOverlay = document.createElement('div');
-    transitionOverlay.className = 'page-transition';
-    document.body.appendChild(transitionOverlay);
+    const panel1 = document.createElement('div');
+    panel1.className = 'transition-panel panel-copper';
+    const panel2 = document.createElement('div');
+    panel2.className = 'transition-panel panel-dark';
+    
+    document.body.appendChild(panel1);
+    document.body.appendChild(panel2);
 
-    // Entrance: briefly show the overlay covering the page, then wipe away.
+    // Entrance animation: panels slide out of view.
     requestAnimationFrame(() => {
-        transitionOverlay.classList.add('is-entering');
+        panel1.classList.add('is-entering');
+        panel2.classList.add('is-entering');
         document.body.classList.add('is-page-ready');
     });
 
@@ -306,11 +367,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const destination = link.getAttribute('href');
             if (destination === currentPage) return;
             e.preventDefault();
-            transitionOverlay.classList.remove('is-entering');
-            transitionOverlay.classList.add('is-leaving');
+            
+            panel1.classList.remove('is-entering');
+            panel2.classList.remove('is-entering');
+            
+            panel1.classList.add('is-leaving');
+            panel2.classList.add('is-leaving');
+            
             setTimeout(() => {
                 window.location.href = destination;
-            }, 480);
+            }, 680); // Match transition duration (600ms) plus a tiny buffer
         });
     });
 
@@ -417,6 +483,48 @@ document.addEventListener('DOMContentLoaded', () => {
         if (filterInput) {
             filterInput.addEventListener('input', applyFilters);
         }
+    }
+    /* ============================================
+       11. Timeline Scroll-bound Line Drawing
+       ============================================ */
+    const timelines = document.querySelectorAll('.timeline');
+    if (timelines.length > 0) {
+        const observerOptions = {
+            root: null,
+            threshold: 0
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-in-view');
+                } else {
+                    entry.target.classList.remove('is-in-view');
+                }
+            });
+        }, observerOptions);
+        
+        timelines.forEach(t => observer.observe(t));
+        
+        const animateTimelineLines = () => {
+            timelines.forEach(t => {
+                if (!t.classList.contains('is-in-view')) return;
+                const rect = t.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                const start = rect.top - windowHeight;
+                const total = rect.height;
+                const scrolled = -start;
+                
+                let progress = total > 0 ? (scrolled / total) : 0;
+                progress = Math.max(0, Math.min(1, progress));
+                
+                t.style.setProperty('--timeline-line-height', `${progress * 100}%`);
+            });
+        };
+        
+        window.addEventListener('scroll', animateTimelineLines, { passive: true });
+        animateTimelineLines();
     }
 
 });
