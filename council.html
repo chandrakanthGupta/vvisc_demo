@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="light-mode">
+<body class="dark-mode">
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -35,7 +35,7 @@
 
             <div class="nav-actions">
                 <div class="theme-toggle-container">
-                    <span class="theme-label" id="theme-label">Light Mode</span>
+                    <span class="theme-label" id="theme-label">Midnight</span>
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
                         <span class="toggle-icon"></span>
                     </button>
@@ -200,19 +200,7 @@
         </div>
     </footer>
 
-    <!-- Mouse hover tracking effect script for premium cards -->
-    <script>
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.profile-card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-    </script>
+
     <script src="main.js"></script>
 </body>
 

@@ -1,5 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Dynamic Parallax Background Injection
+    const bgParallax = document.createElement('div');
+    bgParallax.className = 'bg-parallax';
+    document.body.prepend(bgParallax);
+
+    // Parallax background scrolling logic
+    let parallaxTicking = false;
+    window.addEventListener('scroll', () => {
+        if (!parallaxTicking) {
+            window.requestAnimationFrame(() => {
+                const scrollTop = window.scrollY;
+                bgParallax.style.transform = `translate3d(0, ${scrollTop * -0.12}px, 0)`;
+                parallaxTicking = false;
+            });
+            parallaxTicking = true;
+        }
+    });
+
     /* ============================================
        0. Active Page Highlighting & Sliding Hover Pill
        ============================================ */
@@ -36,25 +54,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ============================================
-       0b. 3D Tilt Tracking for Premium Cards
+       0b. 3D Tilt, Spotlight Radial Glow, and Magnetic Buttons
        ============================================ */
-    const tiltCards = document.querySelectorAll('.card, .event-card, .department-card, .profile-card');
     const isTouchDevice = matchMedia('(hover: none)').matches;
     
-    if (!isTouchDevice) {
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width;
-                const y = (e.clientY - rect.top) / rect.height;
-                const tiltX = (0.5 - y) * 6; // max 3deg
-                const tiltY = (x - 0.5) * 6;
+    // Cards spotlight + 3D Tilt
+    const cards = document.querySelectorAll('.card, .event-card, .department-card, .profile-card, .timeline-content, .announcement-card, .info-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+            
+            if (!isTouchDevice) {
+                const percentX = x / rect.width;
+                const percentY = y / rect.height;
+                const tiltX = (0.5 - percentY) * 8; // max 4deg
+                const tiltY = (percentX - 0.5) * 8;
                 card.style.setProperty('--tilt-x', `${tiltX}deg`);
                 card.style.setProperty('--tilt-y', `${tiltY}deg`);
+            }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--tilt-x', '0deg');
+            card.style.setProperty('--tilt-y', '0deg');
+        });
+    });
+
+    // Magnetic buttons
+    if (!isTouchDevice) {
+        const magneticButtons = document.querySelectorAll('.btn, .hamburger, .theme-toggle');
+        magneticButtons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.setProperty('--magnetic-x', `${x * 0.3}px`);
+                btn.style.setProperty('--magnetic-y', `${y * 0.3}px`);
             });
-            card.addEventListener('mouseleave', () => {
-                card.style.setProperty('--tilt-x', '0deg');
-                card.style.setProperty('--tilt-y', '0deg');
+            btn.addEventListener('mouseleave', () => {
+                btn.style.setProperty('--magnetic-x', '0px');
+                btn.style.setProperty('--magnetic-y', '0px');
             });
         });
     }
@@ -144,28 +187,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ============================================
-       2. Theme Toggle Logic
+       2. Theme Toggle Logic (Midnight Blue vs OLED Black)
        ============================================ */
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeLabel = document.getElementById('theme-label');
     const body = document.body;
 
     if (themeToggleBtn) {
-        const savedTheme = localStorage.getItem('vvisc-theme');
-        if (savedTheme) {
-            body.classList.remove('light-mode', 'dark-mode');
-            body.classList.add(savedTheme);
-            if (themeLabel) themeLabel.textContent = savedTheme === 'dark-mode' ? 'Dark Mode' : 'Light Mode';
+        const savedTheme = localStorage.getItem('vvisc-theme') || 'dark-mode';
+        body.classList.remove('light-mode', 'dark-mode', 'oled-mode');
+        body.classList.add(savedTheme);
+        if (themeLabel) {
+            themeLabel.textContent = savedTheme === 'light-mode' ? 'Light' : 'Neon Dark';
         }
 
         themeToggleBtn.addEventListener('click', () => {
             if (body.classList.contains('light-mode')) {
                 body.classList.replace('light-mode', 'dark-mode');
-                if (themeLabel) themeLabel.textContent = 'Dark Mode';
+                if (themeLabel) themeLabel.textContent = 'Neon Dark';
                 localStorage.setItem('vvisc-theme', 'dark-mode');
             } else {
                 body.classList.replace('dark-mode', 'light-mode');
-                if (themeLabel) themeLabel.textContent = 'Light Mode';
+                if (themeLabel) themeLabel.textContent = 'Light';
                 localStorage.setItem('vvisc-theme', 'light-mode');
             }
         });
@@ -284,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
        7. Custom Cursor (desktop / mouse only)
        ============================================ */
     const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (supportsHover) {
+    if (supportsHover && !isTouchDevice) {
         const cursorDot = document.createElement('div');
         cursorDot.className = 'cursor-dot';
         const cursorRing = document.createElement('div');
@@ -301,27 +344,42 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+            cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
         });
 
         const animateRing = () => {
-            ringX += (mouseX - ringX) * 0.18;
-            ringY += (mouseY - ringY) * 0.18;
-            cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+            // Spring physics interpolation (0.15 friction)
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
             requestAnimationFrame(animateRing);
         };
         requestAnimationFrame(animateRing);
 
-        const hoverTargets = 'a, button, .card, .event-card, .department-card, .profile-card, .gallery-item, .carousel-item, input, textarea';
+        const linkTargets = 'a, button, .theme-toggle, .hamburger, input, textarea';
+        const cardTargets = '.card, .event-card, .department-card, .profile-card, .timeline-content, .announcement-card, .info-card, .gallery-item, .carousel-item';
+        
         document.addEventListener('mouseover', (e) => {
-            if (e.target.closest(hoverTargets)) {
+            if (e.target.closest(linkTargets)) {
                 cursorRing.classList.add('is-hovering');
+            } else if (e.target.closest(cardTargets)) {
+                cursorRing.classList.add('is-hovering-card');
             }
         });
+        
         document.addEventListener('mouseout', (e) => {
-            if (e.target.closest(hoverTargets)) {
+            if (e.target.closest(linkTargets)) {
                 cursorRing.classList.remove('is-hovering');
+            } else if (e.target.closest(cardTargets)) {
+                cursorRing.classList.remove('is-hovering-card');
             }
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursorRing.classList.add('is-clicking');
+        });
+        document.addEventListener('mouseup', () => {
+            cursorRing.classList.remove('is-clicking');
         });
 
         document.addEventListener('mouseleave', () => {
@@ -332,13 +390,20 @@ document.addEventListener('DOMContentLoaded', () => {
             cursorDot.style.opacity = '1';
             cursorRing.style.opacity = '1';
         });
+
+        // Touch event safety net to disable cursor immediately on touch interaction
+        window.addEventListener('touchstart', () => {
+            cursorDot.remove();
+            cursorRing.remove();
+            document.body.classList.remove('cursor-active');
+        }, { once: true });
     }
 
     /* ============================================
        8. Page Transitions (Premium Multi-Panel Slide)
        ============================================ */
     const panel1 = document.createElement('div');
-    panel1.className = 'transition-panel panel-copper';
+    panel1.className = 'transition-panel panel-primary';
     const panel2 = document.createElement('div');
     panel2.className = 'transition-panel panel-dark';
     
